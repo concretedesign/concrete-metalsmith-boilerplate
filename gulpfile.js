@@ -46,7 +46,7 @@ function browserifyHandler(err) {
 gulp.task('scripts', function() {
   var production = util.env.type === 'production';
 
-  gulp.src(['./src/scripts/app.js'])
+  return gulp.src(['./src/scripts/app.js'])
     .pipe(browserify({
       debug: !production,
       paths: ['./node_modules','./app'],
@@ -56,6 +56,8 @@ gulp.task('scripts', function() {
     .pipe(gulpif(production, uglify())) // only minify if production
     .pipe(gulp.dest('./build/scripts/'));
 });
+
+gulp.task('scripts-watch', ['scripts'], browserSync.reload);
 
 gulp.task('browser-sync', function(){
   browserSync({
@@ -79,7 +81,7 @@ gulp.task('sync', function() {
 gulp.task('watch', function() {
   gulp.watch(paths.docs, ['rebuild']);
   gulp.watch(paths.styles, ['styles']);
-  gulp.watch(paths.scripts, ['scripts']);
+  gulp.watch(paths.scripts, ['scripts-watch']);
 });
 
 gulp.task('serve', function() {
