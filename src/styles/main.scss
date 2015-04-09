@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+/* testing import */
+@import "fonts";
+
+/* testing output */
+body {
+  padding: 30px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #121212;
+  background-color: #f1f1f1;
+}
+
+section {
+  max-width: 590px;
+}

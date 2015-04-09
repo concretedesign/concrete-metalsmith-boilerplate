@@ -1,0 +1,33 @@
+{
+  "name": "concrete-metalsmith-boilerplate",
+  "version": "0.0.1",
+  "keywords": [
+    "gulp",
+    "metalsmith"
+  ],
+  "description": "Gulp + Metalsmith Boilerplate project",
+  "author": {
+    "name": "Matt Crider"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "gulp": "^3.8.11",
+    "gulp-sass": "^1.3.3",
+    "handlebars": "^3.0.1",
+    "install": "^0.1.8",
+    "metalsmith": "^1.3.0",
+    "metalsmith-drafts": "0.0.1",
+    "metalsmith-jade": "0.0.4",
+    "metalsmith-markdown": "^0.2.1",
+    "metalsmith-permalinks": "^0.4.0",
+    "metalsmith-templates": "^0.6.1",
+    "run-sequence": "^1.0.2",
+    "swig": "^1.4.2"
+  },
+  "scripts": {
+    "build": "metalsmith"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.4.0"
+  }
+}
