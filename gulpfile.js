@@ -3,6 +3,7 @@ var browserSync = require('browser-sync');
 var browserify = require('gulp-browserify');
 var reload = browserSync.reload;
 var sass = require('gulp-sass');
+var sourcemaps = require('gulp-sourcemaps');
 var cp = require('child_process');
 var runSequence = require('run-sequence');
 var uglify = require('gulp-uglify');
@@ -19,15 +20,6 @@ var paths = {
   docs: ['src/**/*.html', 'src/**/*.md', 'templates/*.html', 'templates/*.jade']
 };
 
-gulp.task('styles', function() {
-  browserSync.notify('<span style="color: grey">Running:</span> styles');
-
-  gulp.src('./src/styles/*.scss')
-    .pipe(sass())
-    .pipe(gulp.dest('./build/css'))
-    .pipe(reload({stream:true}));
-});
-
 // Standard error handler
 function standardHandler(err) {
   // Notification
@@ -37,6 +29,25 @@ function standardHandler(err) {
   // Log to console
   util.log(util.colors.red('Error'), err.message);
 }
+
+function sassErrorHandler(err) {
+  standardHandler({
+    message: err
+  });
+}
+
+gulp.task('styles', function() {
+  browserSync.notify('<span style="color: grey">Running:</span> styles');
+
+  gulp.src('./src/styles/main.scss')
+    .pipe(sourcemaps.init())
+    .pipe(sass({
+      onError: sassErrorHandler
+    }))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('./build/css'))
+    .pipe(reload({stream:true}));
+});
 
 // Handler for browserify
 function browserifyHandler(err) {
