@@ -63,6 +63,7 @@ gulp.task('browser-sync', function(){
   browserSync({
     host: '*',
     port: 9000,
+    open: false,
     server: {
       baseDir: './build'
     }
