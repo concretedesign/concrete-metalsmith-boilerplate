@@ -10,6 +10,7 @@ var uglify = require('gulp-uglify');
 var gulpif = require('gulp-if');
 var util = require('gulp-util');
 var notifier = require('node-notifier');
+var neat = require('node-neat').includePaths;
 var debowerify = require("debowerify");
 
 
@@ -42,7 +43,8 @@ gulp.task('styles', function() {
   gulp.src('./src/styles/main.scss')
     .pipe(sourcemaps.init())
     .pipe(sass({
-      onError: sassErrorHandler
+      onError: sassErrorHandler,
+      includePaths: ['styles'].concat(neat)
     }))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('./build/css'))
@@ -122,4 +124,4 @@ gulp.task('build', function(done){
     .on('close', done);
 });
 
-gulp.task('default', ['server']);
+gulp.task('default', ['serve']);

@@ -1,0 +1,24 @@
+// Various helper classes
+%clearfix {
+  @include clearfix;
+}
+
+.pull-right {
+  float:right;
+}
+
+.pull-left {
+  float: left;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.unblur {
+  .video-meta, .comments-container, .bio-container, .extras-container, .behind-the-scenes-container {
+    opacity: 1 !important;
+    filter: blur(0) !important;
+    -webkit-filter: blur(0) !important;
+  }
+}

@@ -1,0 +1,113 @@
+body {
+  -webkit-font-smoothing: antialiased;
+  color: $base-font-color;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+  font-family: $header-font-family;
+  line-height: $header-line-height;
+  color: $base-type-color;
+  margin: 0;
+  // text-rendering: optimizeLegibility; // Fix the character spacing for headings
+}
+
+h1 {
+  font-size: $h1-font-size;
+  font-weight: normal;
+}
+
+h2 {
+  font-family: $sans-serif;
+  font-size: $h2-font-size;
+
+  &.small {
+    font-family: $sans-serif;
+    font-size: rem(25);
+    margin-bottom: 12px;
+  }
+}
+
+h3 {
+  font-family: $sans-serif;
+  font-size: $h3-font-size;
+}
+
+h4 {
+  text-transform: uppercase;
+  line-height: 25px;
+  font-family: $sans-serif;
+  font-size: $h4-font-size;
+}
+
+h5 {
+  font-size: $h5-font-size;
+  margin-bottom: 10px;
+}
+
+h6 {
+  font-size: $h6-font-size;
+}
+
+p {
+  font-size: $p-font-size;
+  margin: 0 0 ($base-spacing / 2);
+
+  &.copy {
+    font-family: $sans-serif;
+    font-size: rem(18);
+  }
+}
+
+a {
+  @include transition(color 0.1s linear);
+  color: $base-link-color;
+  text-decoration: none;
+
+  &:hover {
+    color: $hover-link-color;
+  }
+
+  &:active, &:focus {
+    color: $hover-link-color;
+    outline: none;
+  }
+}
+
+hr {
+  border-bottom: $base-border;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  margin: $base-spacing 0;
+}
+
+img,
+picture {
+  margin: 0;
+  max-width: 100%;
+}
+
+blockquote {
+  border-left: 2px solid $base-border-color;
+  color: lighten($base-font-color, 15);
+  margin: $base-spacing 0;
+  padding-left: $base-spacing / 2;
+}
+
+cite {
+  color: lighten($base-font-color, 25);
+  font-style: italic;
+
+  &:before {
+    content: "\2014 \00A0";
+  }
+}
