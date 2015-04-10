@@ -48,7 +48,7 @@ gulp.task('styles', function() {
     }))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('./build/css'))
-    .pipe(reload({stream:true}));
+    .pipe(browserSync.reload({stream:true}));
 });
 
 // Handler for browserify
