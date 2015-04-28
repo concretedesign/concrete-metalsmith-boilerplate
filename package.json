@@ -32,6 +32,7 @@
   },
   "devDependencies": {
     "browser-sync": "^2.4.0",
+    "gulp-awspublish": "^2.0.0",
     "gulp-browserify": "^0.5.1",
     "gulp-if": "^1.2.5",
     "gulp-sourcemaps": "^1.5.1",
